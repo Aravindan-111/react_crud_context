@@ -12,7 +12,7 @@ export default function Profile({ match }) {
   };
   useEffect(() => {
     getUser();
-  }, []);
+  });
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function Profile({ match }) {
         <div className="border border-secondary mx-auto form_size p-4">
           <div className="d-flex flex-column align-items-center">
             <h2>Profile</h2>
-            <img className="rounded" src={user.avatar} />
+            <img className="rounded" src={user.avatar} alt="" />
           </div>
           <div className="mt-4">
             <p>

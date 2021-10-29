@@ -8,7 +8,7 @@ export default function Edituserdetails({ match }) {
   let context = useContext(Context);
   const selected_data = context.data[id];
   const temp_name = selected_data.name;
-  console.log(context.data);
+  console.log(context.data[id]);
   const [name, setName] = useState(selected_data.name);
   const [email, setEmail] = useState(selected_data.email);
   const [company, setCompany] = useState(selected_data.company);

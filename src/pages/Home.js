@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../components/Context";
 
@@ -12,11 +12,10 @@ export default function Home() {
   };
   // Delete
   const deleteUser = async () => {
-    console.log(deleteId);
-    const deleteUserId = await axios.delete(
+    await axios.delete(
       `https://6177d55e9c328300175f5ba1.mockapi.io/CRUD-mock/${deleteId}`
     );
-    console.log(deleteUserId);
+    // console.log(deleteUserId);
     const data = context.data.filter((x) => x.id !== deleteId);
     console.log(data);
     context.setData(data);
@@ -34,7 +33,11 @@ export default function Home() {
             >
               <div className="p-3 d-flex flex-column justify-content-center">
                 <div className="d-flex flex-column">
-                  <img className="rounded mx-auto d-block" src={data.avatar} />
+                  <img
+                    className="rounded mx-auto d-block"
+                    src={data.avatar}
+                    alt=""
+                  />
                   <h3 className="d-flex justify-content-center mt-3">
                     {data.name}
                   </h3>
@@ -94,7 +97,7 @@ export default function Home() {
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-danger"
+                  className="btn btn-primary"
                   data-dismiss="modal"
                 >
                   Cancel
