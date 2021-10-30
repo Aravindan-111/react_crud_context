@@ -5,11 +5,12 @@ import EditCreateTemplate from "../components/Edit_create_template";
 
 export default function Edituserdetails({ match }) {
   const id = match.params.id;
-  let context = useContext(Context);
-  const selected_data = context.data[id];
+  const context = useContext(Context);
+  let selected_data = context.data.filter((x) => x.id === id);
+  selected_data = selected_data[0];
   const temp_name = selected_data.name;
-  console.log(context.data[id]);
   const [name, setName] = useState(selected_data.name);
+  // console.log(name);
   const [email, setEmail] = useState(selected_data.email);
   const [company, setCompany] = useState(selected_data.company);
   const [country, setCountry] = useState(selected_data.country);
@@ -29,9 +30,9 @@ export default function Edituserdetails({ match }) {
         city: city,
       }
     );
-    const dummy_data = [...context.data];
-    const temp = context.data.filter((a) => a.id === id);
-    dummy_data[temp] = data;
+    let dummy_data = [...context.data];
+    const index = dummy_data.findIndex((x) => x.id === id);
+    dummy_data[index] = data;
     context.setData(dummy_data);
     setprofileNotCreated(false);
   };
@@ -54,8 +55,7 @@ export default function Edituserdetails({ match }) {
         </>
       ) : (
         <div className="mt-4 d-flex justify-content-center">
-          <h3>User Created Successfully ! </h3>
-          <i className="far fa-check-circle"></i>
+          <h3>User Details Updated Successfully ! </h3>
         </div>
       )}
     </div>

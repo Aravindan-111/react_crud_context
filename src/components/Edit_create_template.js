@@ -5,17 +5,17 @@ import { Context } from "./Context";
 export default function EditCreateTemplate(props) {
   let context = useContext(Context);
   const id = props.id;
-  context = context.data[id];
+  let dummy_data = context.data.filter((x) => x.id === id);
+  dummy_data = dummy_data[0];
   const dummy = props.dummy;
-  // console.log(context);
-  const [name, setName] = useState(dummy ? context.name : "");
-  const [email, setEmail] = useState(dummy ? context.email : "");
-  const [company, setCompany] = useState(dummy ? context.company : "");
-  const [country, setCountry] = useState(dummy ? context.country : "");
-  const [state, setState] = useState(dummy ? context.state : "");
-  const [city, setCity] = useState(dummy ? context.city : "");
+  const [name, setName] = useState(dummy ? dummy_data.name : "");
+  const [email, setEmail] = useState(dummy ? dummy_data.email : "");
+  const [company, setCompany] = useState(dummy ? dummy_data.company : "");
+  const [country, setCountry] = useState(dummy ? dummy_data.country : "");
+  const [state, setState] = useState(dummy ? dummy_data.state : "");
+  const [city, setCity] = useState(dummy ? dummy_data.city : "");
   const handleInput = ({ target: { value, name } }) => {
-    console.log(value, name);
+    // console.log(value, name);
     if (name === "name") {
       setName(value);
       props.setName(value);

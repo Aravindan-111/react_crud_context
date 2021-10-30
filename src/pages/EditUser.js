@@ -4,7 +4,8 @@ import { Context } from "../components/Context";
 
 export default function Edituser({ match }) {
   const context = useContext(Context);
-  const dummy = context.data[match.params.id];
+  let dummy = context.data.filter((x) => x.id === match.params.id);
+  dummy = dummy[0];
   const [name, setName] = useState(dummy.name);
   const [email, setEmail] = useState(dummy.email);
   const [country, setCountry] = useState(dummy.country);
@@ -25,9 +26,8 @@ export default function Edituser({ match }) {
       }
     );
     const dummy_user = [...context.data];
-    const dummy1 = context.data.filter((a) => a.id === match.params.id);
-    dummy_user[dummy1] = data;
-    console.log(dummy_user[dummy1]);
+    const index = dummy_user.findIndex((x) => x.id === match.params.id);
+    dummy_user[index] = data;
     context.setData(dummy_user);
     setprofileNotUpdated(false);
   };
@@ -90,8 +90,8 @@ export default function Edituser({ match }) {
           </div>
         </>
       ) : (
-        <div>
-          <h3>User Updated</h3>
+        <div className="mt-4 d-flex justify-content-center">
+          <h3>User Updated Successfully !</h3>
         </div>
       )}
     </div>

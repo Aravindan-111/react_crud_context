@@ -51,7 +51,7 @@ export default function Createuser(props) {
       ) : (
         <>
           <div className="mt-4 d-flex justify-content-center">
-            <h3>User Created Successfully</h3>
+            <h3>User Created Successfully ! </h3>
           </div>
         </>
       )}
