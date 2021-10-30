@@ -84,14 +84,17 @@ export default function Home() {
             <div className="modal-content">
               {/* modal header */}
               <div className="modal-header">
-                <h4 className="modal-title">Modal Heading</h4>
-                <button type="button" className="close" data-dismiss="modal">
-                  ×
-                </button>
+                <h4 className="modal-title">Delete for Sure?</h4>
+                <button
+                  type="button"
+                  className="btn-close"
+                  aria-label="Close"
+                  data-dismiss="modal"
+                ></button>
               </div>
 
               {/* <!-- Modal body --> */}
-              <div className="modal-body">Modal body..</div>
+              {/* <div className="modal-body">Modal body..</div> */}
 
               {/* <!-- Modal footer --> */}
               <div className="modal-footer">
