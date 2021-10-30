@@ -41,12 +41,14 @@ export default function Home() {
                   <h3 className="d-flex justify-content-center mt-3">
                     {data.name}
                   </h3>
-                  <Link
-                    to={`edituserdetails/${data.id}`}
-                    className="btn btn-danger"
-                  >
-                    <i className="fas fa-user-edit"></i>
-                  </Link>
+                  <div className="d-flex justify-content-center">
+                    <Link
+                      to={`edituserdetails/${data.id}`}
+                      className="btn btn-danger"
+                    >
+                      <i className="fas fa-user-edit"></i>
+                    </Link>
+                  </div>
                 </div>
                 <div className="mt-3">
                   <b>Email : </b>
